@@ -1,6 +1,6 @@
 /*!
- * jQuery Print Link URLs Plugin v0.9.2
- * http://terkel.jp/archives/2010/05/styles-and-scripts-for-print/
+ * jQuery Print Link URLs Plugin v0.9.3
+ * https://github.com/terkel/jquery-print-link-urls
  * 
  * Copyright (c) 2012 Takeru Suzuki - http://terkel.jp/
  * Licensed under the MIT license - http://www.opensource.org/licenses/MIT
@@ -10,7 +10,7 @@
         return this.each(function () {
             var $this = $(this),
                 $links = $this.find('a[href]').filter(function () {
-                    return /^http(s)?:/.test(this.href);
+                    return /^https?:/.test(this.href);
                 }),
                 html = [],
                 urls = [];
@@ -29,10 +29,10 @@
                 } else {
                     index = inArray + 1;
                 }
-                $('<sup class="url-ref">' + index + '</sup>').insertAfter($(this)).hide();
+                $('<sup class="url-ref">' + index + '</sup>').insertAfter($(this));
             });
             html[html.length] = '</dl>';
-            $(html.join('')).appendTo($this).hide();
+            $(html.join('')).appendTo($this);
         });
     };
 })(jQuery);

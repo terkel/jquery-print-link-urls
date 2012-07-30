@@ -2,14 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title></title>
 <style>
-.url-ref { display: inline !important; }
-.url-list { display: block !important; }
+.url-ref,
+.url-list { display: none; }
+@media print {
+    .url-ref { display: inline; }
+    .url-list { display: block; }
+}
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="jquery.print-link-urls.js"></script>
+<script src="./jquery.print-link-urls.js"></script>
 <script>
 $(function () {
     $('#test').printLinkURLs();
@@ -25,9 +28,12 @@ $(function () {
         <li><a href="http://www.google.com/">Google</a></li>
         <li><a href="./index.html">Index</a></li>
         <li><a href="http://www.google.com/">Google</a></li>
+        <li><a href="https://github.com/">GitHub</a></li>
         <li><a href="mailto:hello@example.com">Email me!</a></li>
     </ul>
 </div>
+
+<p>See print preview in your browser.</p>
 
 </body>
 </html>
